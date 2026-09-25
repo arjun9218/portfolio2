@@ -110,3 +110,7 @@ html[data-theme="dark"] .button-primary:hover{background:#5279ef}
   .hero-copy h1{font-size:41px}
   .hero-ctas{align-items:stretch}
 }
+
+.brand-mark{font-size:18px;letter-spacing:-1px;padding-right:0}
+.graphic-center{letter-spacing:-2px;padding-right:0}
+@media(max-width:370px){.brand-name{display:inline;font-size:11px}.brand{gap:7px}.brand-mark{width:31px;height:31px;font-size:15px}.header-actions{gap:6px}.header-inner{gap:10px}.icon-button{width:34px;height:34px}}
