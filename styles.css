@@ -62,6 +62,11 @@ html[data-theme="dark"] .button-primary:hover{background:#5279ef}
 .stack-group{transition:transform .25s,border-color .25s,box-shadow .25s}
 .stack-group:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--blue) 37%,var(--line));box-shadow:var(--shadow)}
 .stack-group-feature{border-color:color-mix(in srgb,var(--blue) 28%,var(--line));background:linear-gradient(145deg,var(--surface),var(--blue-pale))}
+.ai-proof{display:grid;grid-template-columns:minmax(0,.65fr) minmax(0,1fr);gap:38px;margin-top:18px;padding:30px 32px;border:1px solid color-mix(in srgb,var(--blue) 25%,var(--line));border-radius:20px;background:var(--surface);box-shadow:0 8px 28px rgba(31,54,106,.035)}
+.ai-proof-heading h3{margin:12px 0 0;font-size:23px;line-height:1.22;letter-spacing:-.035em}
+.ai-proof-detail p{margin:0;color:var(--text-soft);font-size:13px;line-height:1.7}
+.ai-proof-detail p+p{margin-top:10px}
+.ai-proof-detail strong{color:var(--text)}
 .impact-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:-8px 0 32px}
 .impact-stat{min-width:0;padding:22px 20px;border:1px solid var(--line);border-radius:18px;background:var(--surface);box-shadow:0 8px 28px rgba(31,54,106,.035)}
 .impact-stat strong{display:block;color:var(--blue);font-size:clamp(28px,3vw,39px);line-height:1;font-weight:800;letter-spacing:-.05em}
@@ -80,6 +85,7 @@ html[data-theme="dark"] .button-primary:hover{background:#5279ef}
   .portrait-composition{display:none}
   .hero-mobile-avatar{display:block;width:56px;height:56px;flex:none;object-fit:cover;object-position:center 34%;border:3px solid var(--surface);border-radius:50%;box-shadow:0 6px 18px rgba(34,66,122,.13)}
   .hero-intro .eyebrow{white-space:normal;line-height:1.5}
+  .ai-proof{grid-template-columns:1fr;gap:18px}
   .stack-section{padding-top:82px;padding-bottom:82px}
 }
 @media(max-width:620px){
@@ -93,6 +99,8 @@ html[data-theme="dark"] .button-primary:hover{background:#5279ef}
   .hero-skillline{gap:6px;margin-bottom:24px}
   .hero-skillline span{font-size:10px;padding:7px 9px}
   .hero-footnote{font-size:10px;margin-top:28px}
+  .ai-proof{padding:22px}
+  .ai-proof-heading h3{font-size:21px}
   .stack-section .section-heading{margin-bottom:32px}
 }
 @media(max-width:370px){
