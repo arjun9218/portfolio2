@@ -114,3 +114,66 @@ html[data-theme="dark"] .button-primary:hover{background:#5279ef}
 .brand-mark{font-size:18px;letter-spacing:-1px;padding-right:0}
 .graphic-center{letter-spacing:-2px;padding-right:0}
 @media(max-width:370px){.brand-name{display:inline;font-size:11px}.brand{gap:7px}.brand-mark{width:31px;height:31px;font-size:15px}.header-actions{gap:6px}.header-inner{gap:10px}.icon-button{width:34px;height:34px}}
+
+/* Compact skills, then evidence of architecture decisions. */
+.stack-section{padding-top:78px;padding-bottom:84px}
+.stack-section .section-heading{margin-bottom:30px}
+.stack-group{min-height:0;padding:21px 23px}
+.stack-group-heading{margin-bottom:15px}
+.skill-list span{padding:6px 9px}
+#work{padding-top:96px}
+.system-flow{display:flex;align-items:center;gap:7px}
+.system-flow span{flex:1;min-width:0;padding:12px 6px;border:1px solid #dae5fb;border-radius:9px;background:#f4f7ff;color:#263c63;text-align:center;font-size:10px;font-weight:800;line-height:1.3;overflow-wrap:anywhere}
+.system-flow b{flex:none;color:#315fe8;font-size:16px}
+.system-board-note{margin-top:12px;color:#536783;font-size:10px;line-height:1.4}
+.case-link{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding-bottom:4px;border-bottom:1px solid currentColor;color:var(--blue);font-size:12px;font-weight:800}
+.case-link:hover{color:var(--blue-dark)}
+.case-link span{font-size:16px}
+.ai-section{background:var(--surface-muted);border-block:1px solid var(--line);padding-block:96px}
+.ai-work-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr);gap:18px}
+.ai-work-card,.ai-learning-note{border:1px solid var(--line);border-radius:20px;background:var(--surface);padding:29px 31px}
+.ai-work-card{border-color:color-mix(in srgb,var(--blue) 27%,var(--line));box-shadow:0 8px 28px rgba(31,54,106,.035)}
+.ai-work-label{display:block;color:var(--blue);font-size:10px;font-weight:800;letter-spacing:1.5px}
+.ai-work-card h3{margin:14px 0 10px;font-size:23px;letter-spacing:-.6px}
+.ai-work-card p,.ai-learning-note p{margin:0;color:var(--text-soft);font-size:13px;line-height:1.7}
+.ai-learning-note p{margin-top:17px}
+
+/* Newsletter architecture case study. */
+.case-hero{padding-top:82px;padding-bottom:94px}
+.case-back{display:inline-flex;margin-bottom:52px;color:var(--blue);font-size:13px;font-weight:750}
+.case-back:hover{text-decoration:underline}
+.case-hero h1{max-width:900px;margin:20px 0 22px;font-size:clamp(47px,5.8vw,76px)}
+.case-lede{max-width:790px;margin:0;color:var(--text-soft);font-size:18px;line-height:1.7}
+.case-context-line{margin:28px 0 0;color:var(--text-faint);font-size:12px;font-weight:650}
+.case-section{padding-block:100px;border-top:1px solid var(--line)}
+.case-section .section-heading{margin-bottom:39px}
+.case-context-section,.case-outcomes-section{background:var(--surface-muted)}
+.case-facts,.outcome-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.case-facts>div,.outcome-grid>div{padding:22px 20px;border:1px solid var(--line);border-radius:17px;background:var(--surface)}
+.case-facts strong,.outcome-grid strong{display:block;color:var(--blue);font-size:clamp(22px,2.7vw,32px);font-weight:800;letter-spacing:-.04em}
+.case-facts span,.outcome-grid span{display:block;margin-top:8px;color:var(--text-soft);font-size:12px;line-height:1.45;font-weight:600}
+.case-copy{max-width:900px;margin:33px 0 0;color:var(--text-soft);font-size:15px;line-height:1.8}
+.architecture-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.architecture-panel{min-width:0;padding:28px;border:1px solid var(--line);border-radius:21px;background:var(--surface)}
+.architecture-panel-after{border-color:color-mix(in srgb,var(--blue) 36%,var(--line));box-shadow:0 12px 30px rgba(31,54,106,.055)}
+.architecture-panel-head span,.scheduler-path-label,.decision-card>span{color:var(--blue);font-size:10px;font-weight:800;letter-spacing:1.55px}
+.architecture-panel-head h3{margin:9px 0 21px;font-size:20px;letter-spacing:-.5px}
+.architecture-flow{display:flex;gap:10px;list-style:none;margin:0 0 20px;padding:0}
+.architecture-flow li{position:relative;display:grid;place-items:center;flex:1;min-width:0;min-height:66px;padding:9px 6px;border:1px solid var(--line);border-radius:10px;background:var(--surface-muted);color:var(--text);font-size:11px;font-weight:750;line-height:1.35;text-align:center}
+.architecture-flow li:not(:last-child)::after{content:"→";position:absolute;right:-10px;z-index:1;color:var(--blue);font-size:16px;font-weight:800}
+.architecture-panel p{margin:0;color:var(--text-soft);font-size:13px;line-height:1.7}
+.architecture-panel .flow-intake{margin:0 0 15px;color:var(--text);font-weight:650}
+.scheduler-path{margin-top:18px;padding:22px 28px;border:1px solid var(--line);border-radius:17px;background:var(--surface)}
+.scheduler-path p{margin:10px 0 0;color:var(--text-soft);font-size:13px;line-height:1.65}
+.scheduler-path p:first-of-type{color:var(--text);font-weight:750}
+.decision-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.decision-card{padding:29px 30px;border:1px solid var(--line);border-radius:19px;background:var(--surface)}
+.decision-card h3{margin:13px 0 10px;font-size:21px;letter-spacing:-.55px}
+.decision-card p{margin:0;color:var(--text-soft);font-size:13px;line-height:1.75}
+.tradeoff-note{max-width:920px;margin-top:25px;padding:22px 26px;border-left:3px solid var(--blue);border-radius:0 14px 14px 0;background:var(--surface-muted)}
+.tradeoff-note strong{color:var(--text);font-size:14px}
+.tradeoff-note p{margin:8px 0 0;color:var(--text-soft);font-size:13px;line-height:1.75}
+.case-qualification{max-width:910px;margin:24px 0 0;color:var(--text-faint);font-size:12px;line-height:1.65}
+.case-end-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:35px}
+@media(max-width:800px){.stack-section{padding-block:72px}.ai-work-grid,.architecture-comparison{grid-template-columns:1fr}.case-facts,.outcome-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.case-section{padding-block:80px}}
+@media(max-width:620px){.stack-section{padding-block:62px}.stack-group{padding:20px}.stack-section .section-heading{margin-bottom:27px}#work{padding-top:76px}.ai-section{padding-block:76px}.ai-work-card,.ai-learning-note{padding:23px}.system-flow span{font-size:9px;padding:11px 4px}.system-flow b{font-size:13px}.case-hero{padding-top:50px;padding-bottom:66px}.case-back{margin-bottom:37px}.case-hero h1{font-size:clamp(42px,10vw,58px)}.case-lede{font-size:15px}.case-section{padding-block:72px}.case-facts>div,.outcome-grid>div{padding:17px 15px}.case-facts strong,.outcome-grid strong{font-size:24px}.architecture-panel{padding:22px}.architecture-flow{flex-direction:column;gap:12px}.architecture-flow li{min-height:47px}.architecture-flow li:not(:last-child)::after{content:"↓";right:auto;bottom:-17px}.decision-grid{grid-template-columns:1fr}.decision-card{padding:24px}}

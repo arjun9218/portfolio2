@@ -39,8 +39,8 @@
 
         <nav class="desktop-nav" aria-label="Main navigation">
           <a href="#stack">Skills</a>
-          <a href="#ai">Applied AI</a>
           <a href="#work">Impact</a>
+          <a href="#ai">Applied AI</a>
           <a href="#approach">Approach</a>
           <a href="#experience">Experience</a>
         </nav>
@@ -58,8 +58,8 @@
       </div>
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
         <a href="#stack">Skills</a>
-        <a href="#ai">Applied AI</a>
         <a href="#work">Impact</a>
+        <a href="#ai">Applied AI</a>
         <a href="#approach">Approach</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
@@ -90,10 +90,6 @@
           <div class="stack-group reveal"><div class="stack-group-heading"><span class="stack-glyph">☁</span><h3>Cloud &amp; infrastructure</h3></div><div class="skill-list"><span>AWS</span><span>SQS</span><span>SNS</span><span>Lambda</span><span>EC2</span><span>S3</span><span>IAM</span><span>Secrets Manager</span><span>Terraform</span><span>Kubernetes</span></div></div>
           <div class="stack-group reveal"><div class="stack-group-heading"><span class="stack-glyph">↗</span><h3>Delivery &amp; observability</h3></div><div class="skill-list"><span>GitHub Actions</span><span>CloudWatch</span><span>Splunk</span><span>Datadog</span><span>Kafka / Confluent</span><span>Cypress</span></div></div>
         </div>
-        <section class="ai-proof reveal" id="ai" aria-labelledby="ai-proof-title">
-          <div class="ai-proof-heading"><span class="section-kicker">APPLIED AI</span><h3 id="ai-proof-title">AI integration in subscription products.</h3></div>
-          <div class="ai-proof-detail"><p><strong>Production work.</strong> Implemented a third-party Model Context Protocol (MCP) integration for the newsletter subscription frontend and contributed to a chatbot.</p><p><strong>Continued learning.</strong> Completed guided MongoDB workshop exercises in vector search and building an LLM agent.</p></div>
-        </section>
       </div></section>
 
       <section class="section shell" id="work" aria-labelledby="work-title">
@@ -114,16 +110,12 @@
             <div class="card-top"><span class="project-index">01 / CURRENT FOCUS</span><span class="project-period">2023 — PRESENT</span></div>
             <div class="project-visual visual-subscriptions" aria-hidden="true">
               <div class="system-board">
-                <div class="system-board-label">Newsletter platform components</div>
-                <div class="system-grid">
-                  <div class="system-node"><span class="system-node-mark">API</span><span>Core API</span></div>
-                  <div class="system-node"><span class="system-node-mark">Q</span><span>Queueing</span></div>
-                  <div class="system-node"><span class="system-node-mark">O</span><span>Orchestrator</span></div>
-                  <div class="system-node"><span class="system-node-mark">J</span><span>Job scheduler</span></div>
-                </div>
+                <div class="system-board-label">Current delivery path</div>
+                <div class="system-flow"><span>Core API</span><b>→</b><span>Queue collection</span><b>→</b><span>Orchestrator</span><b>→</b><span>Downstream</span></div>
+                <div class="system-board-note">Scheduled consent jobs and subscription requests feed the API.</div>
               </div>
             </div>
-            <div class="project-body"><span class="project-type">SUBSCRIPTION PLATFORM / SYSTEM DESIGN</span><h3>Newsletters &amp; subscriptions</h3><p>Helped design a subscription platform supporting more than 50 million subscriber records. Built the core API, downstream orchestrator, and a scheduler handling about 70 jobs a day with roughly 30,000 records each. Contributed to an architecture overhaul that cut backend costs by nearly 50%, including Kafka retirement and Node.js memory optimization.</p><div class="tag-row"><span>Node.js</span><span>AWS</span><span>Terraform</span><span>GitHub Actions</span></div></div>
+            <div class="project-body"><span class="project-type">SUBSCRIPTION PLATFORM / SYSTEM DESIGN</span><h3>Newsletters &amp; subscriptions</h3><p>Designed and championed a simpler architecture as the subscription platform expanded to more brands and markets. Validated the approach with a high-throughput API prototype, then streamlined caching and message delivery. The full overhaul reduced backend cost by nearly 50%.</p><a class="case-link" href="./newsletter-platform.html">Read the architecture case study <span aria-hidden="true">↗</span></a><div class="tag-row"><span>Node.js</span><span>Redis</span><span>AWS</span><span>Terraform</span></div></div>
           </article>
 
           <article class="project-card reveal">
@@ -146,31 +138,41 @@
         </div>
       </section>
 
+      <section class="section ai-section" id="ai" aria-labelledby="ai-title">
+        <div class="shell">
+          <div class="section-heading reveal"><div><span class="section-kicker">03 / APPLIED AI</span><h2 id="ai-title">AI in the product,<br /><span>with clear scope.</span></h2></div><p>Hands-on integration work supported by continued learning.</p></div>
+          <div class="ai-work-grid">
+            <article class="ai-work-card reveal"><span class="ai-work-label">PRODUCTION WORK</span><h3>AI integration for subscriptions</h3><p>Implemented a third-party Model Context Protocol (MCP) integration in the newsletter subscription frontend and contributed to a chatbot.</p></article>
+            <aside class="ai-learning-note reveal"><span class="ai-work-label">CONTINUED LEARNING</span><p>Completed guided MongoDB workshop exercises in vector search and building an LLM agent.</p></aside>
+          </div>
+        </div>
+      </section>
+
       <section class="section approach-section" id="approach" aria-labelledby="approach-title">
         <div class="shell">
-          <div class="section-heading reveal"><div><span class="section-kicker">03 / ENGINEERING LEADERSHIP</span><h2 id="approach-title">Lead with clarity.<br /><span>Design for longevity.</span></h2></div><p>I explain tradeoffs, invite review, and work across teams to turn design decisions into systems that are straightforward to maintain.</p></div>
+          <div class="section-heading reveal"><div><span class="section-kicker">04 / ENGINEERING LEADERSHIP</span><h2 id="approach-title">Lead with clarity.<br /><span>Design for longevity.</span></h2></div><p>The newsletter redesign shows how I use measurements to align teams around practical architecture decisions.</p></div>
           <div class="principle-grid">
-            <article class="principle-card reveal"><span class="principle-number">01</span><div class="principle-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="9" height="9" rx="2"/><rect x="20" y="3" width="9" height="9" rx="2"/><rect x="20" y="20" width="9" height="9" rx="2"/><path d="M12 15.5h4V7.5h4M16 15.5v9h4"/></svg></div><h3>Simplify the architecture</h3><p>Favor the fewest components that meet reliability and scale needs while accounting for operating cost.</p></article>
-            <article class="principle-card reveal"><span class="principle-number">02</span><div class="principle-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 25h24M7 22V10h5v12m3 0V5h5v17m3 0v-8h5v8"/><path d="m5 7 4-3 5 2 5-4 7 2"/></svg></div><h3>Make tradeoffs visible</h3><p>Lead design reviews that make reliability, cost, and maintenance implications clear to stakeholders.</p></article>
+            <article class="principle-card reveal"><span class="principle-number">01</span><div class="principle-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="9" height="9" rx="2"/><rect x="20" y="3" width="9" height="9" rx="2"/><rect x="20" y="20" width="9" height="9" rx="2"/><path d="M12 15.5h4V7.5h4M16 15.5v9h4"/></svg></div><h3>Prove the simpler path</h3><p>Used measured API performance to build stakeholder confidence in a simpler production architecture.</p></article>
+            <article class="principle-card reveal"><span class="principle-number">02</span><div class="principle-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 25h24M7 22V10h5v12m3 0V5h5v17m3 0v-8h5v8"/><path d="m5 7 4-3 5 2 5-4 7 2"/></svg></div><h3>Make tradeoffs visible</h3><p>Explained to the team and director how fewer infrastructure components could support growth while reducing operating cost.</p></article>
             <article class="principle-card reveal"><span class="principle-number">03</span><div class="principle-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3 28 9v14l-12 6L4 23V9l12-6Z"/><path d="m4 9 12 6 12-6M16 15v14"/><circle cx="16" cy="15" r="2" fill="currentColor" stroke="none"/></svg></div><h3>Grow the team</h3><p>Mentored engineers throughout my career and worked across teams to turn architecture decisions into reliable systems.</p></article>
           </div>
         </div>
       </section>
 
       <section class="section shell experience-section" id="experience" aria-labelledby="experience-title">
-        <div class="section-heading reveal"><div><span class="section-kicker">04 / EXPERIENCE</span><h2 id="experience-title">A path toward<br /><span>platform architecture.</span></h2></div><p>From product development to backend platforms, my work now spans architecture, implementation, and technical leadership.</p></div>
+        <div class="section-heading reveal"><div><span class="section-kicker">05 / EXPERIENCE</span><h2 id="experience-title">A path toward<br /><span>platform architecture.</span></h2></div><p>From product development to backend platforms, my work now spans architecture, implementation, and technical leadership.</p></div>
         <div class="timeline">
           <article class="timeline-item reveal"><div class="timeline-date">2022 — NOW</div><div class="timeline-marker"></div><div class="timeline-content"><div class="timeline-title"><h3>Software Engineer III</h3><span>Condé Nast</span></div><p>Design and build backend services for newsletters and subscriptions. Lead design reviews, mentor engineers, and provision AWS infrastructure with Terraform and GitHub Actions.</p></div></article>
           <article class="timeline-item reveal"><div class="timeline-date">2019 — 2022</div><div class="timeline-marker"></div><div class="timeline-content"><div class="timeline-title"><h3>Software Engineer II</h3><span>Condé Nast</span></div><p>Built shared publishing features and newsletter systems across React, Next.js, Handlebars, and Copilot CMS.</p></div></article>
           <article class="timeline-item reveal"><div class="timeline-date">2018 — 2019</div><div class="timeline-marker"></div><div class="timeline-content"><div class="timeline-title"><h3>Senior Software Engineer</h3><span>Synamedia</span></div><p>Built full stack features for OpsHub Console, including a reusable microfrontend approach, service changes, tests, and deployments.</p></div></article>
-          <article class="timeline-item reveal"><div class="timeline-date">2014 — 2018</div><div class="timeline-marker"></div><div class="timeline-content"><div class="timeline-title"><h3>Software Engineer &amp; Contractor</h3><span>OpenText</span></div><p>Developed enterprise applications in Java, AngularJS, and MySQL across frontend, backend, and delivery.</p></div></article>
+          <article class="timeline-item reveal"><div class="timeline-date">2014 — 2018</div><div class="timeline-marker"></div><div class="timeline-content"><div class="timeline-title"><h3>Software Engineer</h3><span>OpenText</span></div><p>Developed enterprise applications in Java, AngularJS, and MySQL across frontend, backend, and delivery.</p></div></article>
         </div>
         <div class="education-note reveal"><span>EDUCATION</span><p>M.E. in Computer Science · UVCE <span aria-hidden="true">/</span> B.E. in Information Science · CIT</p></div>
       </section>
 
 
 
-      <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="shell contact-inner"><div class="contact-copy reveal"><span class="section-kicker">05 / SAY HELLO</span><h2 id="contact-title">Let’s design what<br /><em>comes next.</em></h2><p>If you’re building a backend platform or an AI-enabled product, I’d be glad to connect.</p><div class="contact-actions"><a class="button button-light" href="mailto:nag9209@gmail.com?subject=Hello%20Arjun">Email me <span aria-hidden="true">↗</span></a></div></div><div class="contact-graphic reveal" aria-hidden="true"><span class="graphic-ring ring-one"></span><span class="graphic-ring ring-two"></span><span class="graphic-ring ring-three"></span><span class="graphic-center">AG</span></div></div></section>
+      <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="shell contact-inner"><div class="contact-copy reveal"><span class="section-kicker">06 / SAY HELLO</span><h2 id="contact-title">Let’s design what<br /><em>comes next.</em></h2><p>If you’re building a backend platform or an AI-enabled product, I’d be glad to connect.</p><div class="contact-actions"><a class="button button-light" href="mailto:nag9209@gmail.com?subject=Hello%20Arjun">Email me <span aria-hidden="true">↗</span></a></div></div><div class="contact-graphic reveal" aria-hidden="true"><span class="graphic-ring ring-one"></span><span class="graphic-ring ring-two"></span><span class="graphic-ring ring-three"></span><span class="graphic-center">AG</span></div></div></section>
     </main>
 
     <footer class="site-footer"><div class="shell footer-inner"><p>© <span id="year">2026</span> Arjun Gururajan</p><span>Backend platforms · Distributed systems · Applied AI</span><a href="#top">Back to top ↑</a></div></footer>

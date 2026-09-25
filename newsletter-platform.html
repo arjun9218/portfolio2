@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f9fc" />
+    <meta name="description" content="How Arjun Gururajan helped simplify and scale a newsletter subscription platform while reducing backend cost." />
+    <link rel="canonical" href="https://guruvibe.dev/newsletter-platform.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://guruvibe.dev/newsletter-platform.html" />
+    <meta property="og:title" content="Newsletter platform architecture — Arjun Gururajan" />
+    <meta property="og:description" content="A measured Core API redesign, a leaner delivery path, and nearly 50% lower backend cost." />
+    <meta property="og:image" content="https://guruvibe.dev/assets/arjun-gururajan.jpg" />
+    <meta property="og:image:alt" content="Portrait of Arjun Gururajan" />
+    <title>Newsletter platform architecture — Arjun Gururajan</title>
+    <link rel="icon" type="image/jpeg" href="./assets/arjun-gururajan.jpg?v=2" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./script.js"></script>
+  </head>
+  <body class="case-page">
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div id="top" class="page-top-anchor" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="header-inner shell">
+        <a class="brand" href="./index.html#top" aria-label="Arjun Gururajan, portfolio home"><span class="brand-mark">AG</span><span class="brand-name">Arjun Gururajan</span></a>
+        <nav class="desktop-nav" aria-label="Case study navigation"><a href="#context">Context</a><a href="#architecture">Architecture</a><a href="#decisions">Decisions</a><a href="#outcomes">Outcomes</a></nav>
+        <div class="header-actions">
+          <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle color theme"><svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg><svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5 8.5 8.5 0 1 0 20.5 14.3Z"/></svg></button>
+          <a class="header-contact" href="./output/pdf/Arjun_Gururajan_Staff_Engineer_Resume.pdf" download="Arjun_Gururajan_Staff_Engineer_Resume.pdf">Résumé <span aria-hidden="true">↓</span></a>
+          <button class="icon-button menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile case study navigation" hidden><a href="#context">Context</a><a href="#architecture">Architecture</a><a href="#decisions">Decisions</a><a href="#outcomes">Outcomes</a><a href="./index.html#work">Portfolio home</a><a href="./output/pdf/Arjun_Gururajan_Staff_Engineer_Resume.pdf" download="Arjun_Gururajan_Staff_Engineer_Resume.pdf">Download résumé ↓</a></nav>
+    </header>
+
+    <main id="main">
+      <section class="case-hero shell" aria-labelledby="case-title">
+        <a class="case-back" href="./index.html#work">← Back to selected work</a>
+        <span class="section-kicker">ARCHITECTURE CASE STUDY / 2023 — PRESENT</span>
+        <h1 id="case-title">A leaner newsletter backend for growing markets.</h1>
+        <p class="case-lede">The existing path struggled as more brands and markets came online. I used a measured Core API prototype to make the case for a simpler architecture, then helped turn that decision into an efficient production platform.</p>
+        <p class="case-context-line">Condé Nast · Software Engineer III · High-level technical account</p>
+      </section>
+
+      <section class="case-section case-context-section" id="context" aria-labelledby="context-title"><div class="shell">
+        <div class="section-heading reveal"><div><span class="section-kicker">01 / THE CONSTRAINT</span><h2 id="context-title">Growth exposed<br /><span>the cost of complexity.</span></h2></div><p>The platform needed to onboard more markets and brands without multiplying pods and managed-service cost.</p></div>
+        <div class="case-facts reveal" aria-label="Architecture context"><div><strong>~30 RPS</strong><span>old API instability observed</span></div><div><strong>6 pods</strong><span>up to, per region, before redesign</span></div><div><strong>&gt;200 RPS</strong><span>optimized API prototype in one pod</span></div><div><strong>512 MB</strong><span>prototype pod memory allocation</span></div></div>
+        <p class="case-copy reveal">The original Core API was not optimized for memory or CPU use. It became unstable around 30 requests per second; even with up to six pods running in each region, OOMKilled events still occurred. Redis held the full subscription dataset rather than being limited to repeated reads. SQS, Lambda, and Kafka added operating cost around an API that needed more efficient code.</p>
+      </div></section>
+
+      <section class="case-section case-architecture-section" id="architecture" aria-labelledby="architecture-title"><div class="shell">
+        <div class="section-heading reveal"><div><span class="section-kicker">02 / SYSTEM DESIGN</span><h2 id="architecture-title">Remove layers after<br /><span>proving capacity.</span></h2></div><p>These diagrams show the main data paths at a high level; internal implementation details are omitted.</p></div>
+        <div class="architecture-comparison">
+          <article class="architecture-panel reveal"><div class="architecture-panel-head"><span>BEFORE</span><h3>Buffered ingress and Kafka delivery</h3></div><ol class="architecture-flow"><li>SQS</li><li>Lambda</li><li>Core API</li><li>Outbox + Kafka connector</li><li>Downstream systems</li></ol><p>Redis also retained subscription data broadly. The extra services did not solve the API's memory and CPU pressure.</p></article>
+          <article class="architecture-panel architecture-panel-after reveal"><div class="architecture-panel-head"><span>AFTER</span><h3>Direct API and lean orchestration</h3></div><p class="flow-intake">Direct subscription requests and scheduled consent jobs enter the optimized Core API.</p><ol class="architecture-flow"><li>Core API</li><li>Queue collection</li><li>Node.js orchestrator</li><li>Downstream systems</li></ol><p>Redis caches repeated database reads. The orchestrator watches the queue collection and passes messages to downstream systems.</p></article>
+        </div>
+        <div class="scheduler-path reveal"><span class="scheduler-path-label">SCHEDULED CONSENT PATH</span><p>Multiple sources and S3 → scheduled jobs → transformed records → Core API</p><p>The scheduler runs about 70 jobs a day, with roughly 30,000 records per job.</p></div>
+      </div></section>
+
+      <section class="case-section" id="decisions" aria-labelledby="decisions-title"><div class="shell">
+        <div class="section-heading reveal"><div><span class="section-kicker">03 / DECISIONS &amp; OWNERSHIP</span><h2 id="decisions-title">An evidence-led<br /><span>architecture change.</span></h2></div><p>Each removed component was backed by a concrete change in application capacity or responsibility.</p></div>
+        <div class="decision-grid">
+          <article class="decision-card reveal"><span>01 / PROVE</span><h3>Start with the API</h3><p>I built a memory- and CPU-optimized Core API prototype that served more than 200 RPS in one 512 MB pod, then presented the result to the team and director.</p></article>
+          <article class="decision-card reveal"><span>02 / SIMPLIFY</span><h3>Remove unnecessary ingress</h3><p>That result supported removing SQS and Lambda ahead of the API. I narrowed Redis use to caching repeated database calls instead of retaining all subscription data.</p></article>
+          <article class="decision-card reveal"><span>03 / REPLACE</span><h3>Retire Kafka delivery</h3><p>I replaced the costly Kafka connector with a Node.js service that watches a queue collection and orchestrates messages to downstream systems in a single 512 MB pod.</p></article>
+          <article class="decision-card reveal"><span>04 / EXTEND</span><h3>Handle market consent jobs</h3><p>The scheduler pulls consent data from multiple sources and S3. Jobs transform records and submit them to the Core API before the orchestrator passes them downstream.</p></article>
+        </div>
+        <div class="tradeoff-note reveal"><strong>The tradeoff</strong><p>The simpler deployment put more of the queue watching and downstream handoff in our Node.js code. We accepted that responsibility because the measured workload fit within a small pod and the new path reduced operating cost.</p></div>
+      </div></section>
+
+      <section class="case-section case-outcomes-section" id="outcomes" aria-labelledby="outcomes-title"><div class="shell">
+        <div class="section-heading reveal"><div><span class="section-kicker">04 / OUTCOME</span><h2 id="outcomes-title">Lower cost,<br /><span>room to grow.</span></h2></div><p>Capacity measurements informed the design; the production platform now supports a larger operating footprint.</p></div>
+        <div class="outcome-grid reveal"><div><strong>Nearly 50%</strong><span>lower backend cost from the full architecture overhaul</span></div><div><strong>50M+</strong><span>subscriber records supported</span></div><div><strong>~400 RPS</strong><span>peak traffic observed during major events</span></div><div><strong>~180 MB</strong><span>typical job-runner memory within a 512 MB pod</span></div></div>
+        <p class="case-qualification reveal">The &gt;200 RPS figure is from the Core API prototype; the ~400 RPS figure is an observed production peak. The cost reduction reflects the full backend overhaul, including service removal and code optimization.</p>
+        <div class="case-end-actions"><a class="button button-primary" href="./index.html#work">Back to portfolio <span aria-hidden="true">↗</span></a><a class="button button-quiet" href="./output/pdf/Arjun_Gururajan_Staff_Engineer_Resume.pdf" download="Arjun_Gururajan_Staff_Engineer_Resume.pdf">Download résumé <span aria-hidden="true">↓</span></a></div>
+      </div></section>
+    </main>
+
+    <footer class="site-footer"><div class="shell footer-inner"><p>© <span id="year">2026</span> Arjun Gururajan</p><span>Backend platforms · Distributed systems · Applied AI</span><a href="#top">Back to top ↑</a></div></footer>
+  </body>
+</html>
