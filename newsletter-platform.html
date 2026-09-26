@@ -4,17 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f7f9fc" />
-    <meta name="description" content="How Arjun Gururajan helped simplify and scale a newsletter subscription platform while reducing backend cost." />
+    <meta name="description" content="How Arjun Gururajan scaled a newsletter platform while cutting backend cost by nearly 50%, including the measurements and architecture tradeoffs." />
     <link rel="canonical" href="https://guruvibe.dev/newsletter-platform.html" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://guruvibe.dev/newsletter-platform.html" />
-    <meta property="og:title" content="Newsletter platform architecture — Arjun Gururajan" />
-    <meta property="og:description" content="A measured Core API redesign, a leaner delivery path, and nearly 50% lower backend cost." />
+    <meta property="og:title" content="Scaling a newsletter platform while cutting backend cost by nearly 50% — Arjun Gururajan" />
+    <meta property="og:description" content="A measured Core API redesign, a leaner delivery path, and the tradeoffs behind nearly 50% lower backend cost." />
     <meta property="og:image" content="https://guruvibe.dev/assets/arjun-gururajan.jpg" />
     <meta property="og:image:alt" content="Portrait of Arjun Gururajan" />
-    <title>Newsletter platform architecture — Arjun Gururajan</title>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Scaling a newsletter platform while cutting backend cost by nearly 50% — Arjun Gururajan" />
+    <meta name="twitter:description" content="A measured Core API redesign, a leaner delivery path, and the tradeoffs behind nearly 50% lower backend cost." />
+    <meta name="twitter:image" content="https://guruvibe.dev/assets/arjun-gururajan.jpg" />
+    <title>Scaling a newsletter platform while cutting backend cost by nearly 50% — Arjun Gururajan</title>
     <link rel="icon" type="image/jpeg" href="./assets/arjun-gururajan.jpg?v=2" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=3" />
     <script defer src="./script.js"></script>
   </head>
   <body class="case-page">
@@ -28,18 +32,18 @@
         <nav class="desktop-nav" aria-label="Case study navigation"><a href="#context">Context</a><a href="#architecture">Architecture</a><a href="#decisions">Decisions</a><a href="#outcomes">Outcomes</a></nav>
         <div class="header-actions">
           <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle color theme"><svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg><svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5 8.5 8.5 0 1 0 20.5 14.3Z"/></svg></button>
-          <a class="header-contact" href="./output/pdf/Arjun_Gururajan_Staff_Engineer_Resume.pdf" download="Arjun_Gururajan_Staff_Engineer_Resume.pdf">Résumé <span aria-hidden="true">↓</span></a>
+          <a class="header-contact" href="./output/pdf/Arjun_Gururajan_Backend_Platform_Engineer.pdf" download="Arjun_Gururajan_Backend_Platform_Engineer.pdf">Résumé <span aria-hidden="true">↓</span></a>
           <button class="icon-button menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
         </div>
       </div>
-      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile case study navigation" hidden><a href="#context">Context</a><a href="#architecture">Architecture</a><a href="#decisions">Decisions</a><a href="#outcomes">Outcomes</a><a href="./index.html#work">Portfolio home</a><a href="./output/pdf/Arjun_Gururajan_Staff_Engineer_Resume.pdf" download="Arjun_Gururajan_Staff_Engineer_Resume.pdf">Download résumé ↓</a></nav>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile case study navigation" hidden><a href="#context">Context</a><a href="#architecture">Architecture</a><a href="#decisions">Decisions</a><a href="#outcomes">Outcomes</a><a href="./index.html#work">Portfolio home</a><a href="./output/pdf/Arjun_Gururajan_Backend_Platform_Engineer.pdf" download="Arjun_Gururajan_Backend_Platform_Engineer.pdf">Download résumé ↓</a></nav>
     </header>
 
     <main id="main">
       <section class="case-hero shell" aria-labelledby="case-title">
         <a class="case-back" href="./index.html#work">← Back to selected work</a>
         <span class="section-kicker">ARCHITECTURE CASE STUDY / 2023 — PRESENT</span>
-        <h1 id="case-title">A leaner newsletter backend for growing markets.</h1>
+        <h1 id="case-title">Scaling a newsletter platform while cutting backend cost by nearly 50%</h1>
         <p class="case-lede">The existing path struggled as more brands and markets came online. I used a measured Core API prototype to make the case for a simpler architecture, then helped turn that decision into an efficient production platform.</p>
         <p class="case-context-line">Condé Nast · Software Engineer III · High-level technical account</p>
       </section>
@@ -72,9 +76,9 @@
 
       <section class="case-section case-outcomes-section" id="outcomes" aria-labelledby="outcomes-title"><div class="shell">
         <div class="section-heading reveal"><div><span class="section-kicker">04 / OUTCOME</span><h2 id="outcomes-title">Lower cost,<br /><span>room to grow.</span></h2></div><p>Capacity measurements informed the design; the production platform now supports a larger operating footprint.</p></div>
-        <div class="outcome-grid reveal"><div><strong>Nearly 50%</strong><span>lower backend cost from the full architecture overhaul</span></div><div><strong>50M+</strong><span>subscriber records supported</span></div><div><strong>~400 RPS</strong><span>peak traffic observed during major events</span></div><div><strong>~180 MB</strong><span>typical job-runner memory within a 512 MB pod</span></div></div>
+        <div class="outcome-grid reveal"><div><strong>Nearly 50%</strong><span>lower backend cost from the full architecture overhaul</span></div><div><strong>50M+</strong><span>subscriber records supported</span></div><div><strong>~400 RPS</strong><span>observed production peak during major events</span></div><div><strong>~180 MB</strong><span>typical job-runner memory within a 512 MB pod</span></div></div>
         <p class="case-qualification reveal">The &gt;200 RPS figure is from the Core API prototype; the ~400 RPS figure is an observed production peak. The cost reduction reflects the full backend overhaul, including service removal and code optimization.</p>
-        <div class="case-end-actions"><a class="button button-primary" href="./index.html#work">Back to portfolio <span aria-hidden="true">↗</span></a><a class="button button-quiet" href="./output/pdf/Arjun_Gururajan_Staff_Engineer_Resume.pdf" download="Arjun_Gururajan_Staff_Engineer_Resume.pdf">Download résumé <span aria-hidden="true">↓</span></a></div>
+        <div class="case-end-actions"><a class="button button-primary" href="./index.html#work">Back to portfolio <span aria-hidden="true">↗</span></a><a class="button button-quiet" href="./output/pdf/Arjun_Gururajan_Backend_Platform_Engineer.pdf" download="Arjun_Gururajan_Backend_Platform_Engineer.pdf">Download résumé <span aria-hidden="true">↓</span></a></div>
       </div></section>
     </main>
 

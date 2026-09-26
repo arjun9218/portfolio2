@@ -1,11 +1,11 @@
-# Arjun Gururajan — portfolio upload
+# Arjun Gururajan — portfolio
 
-This folder is ready to publish as a static GitHub Pages site. Keep the folder structure exactly as it is: `index.html` must be at the repository root, and the `assets/` and `output/pdf/` folders must remain alongside it.
+A responsive, dependency-free portfolio built with HTML, CSS, and JavaScript. The newsletter architecture case study lives in `newsletter-platform.html`. Every résumé download points to the one-page backend and platform engineer PDF. The site includes a local copy of the portrait from the previous portfolio.
 
-1. Create a new **public** repository at https://github.com/new under the `arjun9218` account. `guruvibes` is a suitable repository name.
-2. Unzip the release archive. In the new repository, choose **Add file → Upload files** and upload the **contents** of the extracted folder, including the `assets` and `output` folders. Commit the upload. Do not upload the ZIP as the site.
-3. Open **Settings → Pages** in that repository. Under **Build and deployment**, choose **Deploy from a branch**, select `main` and `/(root)`, then save.
-4. Wait for GitHub Pages to publish. For a repository named `guruvibes`, the temporary address will be `https://arjun9218.github.io/guruvibes/`.
-5. After buying `guruvibes.dev`, set it as the custom domain in the same Pages settings and then add the GitHub Pages DNS records at GoDaddy. Enable **Enforce HTTPS** once the certificate is ready.
+## Preview
 
-The only résumé in this upload is `output/pdf/Arjun_Gururajan_Staff_Engineer_Resume.pdf`.
+Run `python3 -m http.server 8000` in this directory, then open `http://localhost:8000`.
+
+The site can be deployed as static files to GitHub Pages or another static host. Keep both HTML pages, `assets/`, `output/pdf/`, and `CNAME` together when publishing so the case study, portrait, custom domain, and résumé download work. `output/Arjun_Gururajan_GitHub_Pages.zip` contains the deployable files at the correct paths.
+
+To regenerate the downloadable résumé after editing its content, run `tools/generate_staff_resume.py` with a Python environment containing ReportLab. The generated file is `output/pdf/Arjun_Gururajan_Backend_Platform_Engineer.pdf`. The contact email comes from the previous portfolio and should be checked before publishing.
